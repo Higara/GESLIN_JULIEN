@@ -3,7 +3,7 @@ CFLAGS = -Wall -O2 -Wno-unused-result -g
 LIB    = -lm
 OBJ    = main.o image.o 
 RM     = rm -f
-BIN    = monsieur_Nozick_est_sympa
+BIN    = cparti
 DIRNAME = $(shell basename $$PWD)
 BACKUP  = $(shell date +`basename $$PWD`-%m.%d.%H.%M.zip)
 STDNAME = $(DIRNAME).zip
@@ -11,7 +11,7 @@ STDNAME = $(DIRNAME).zip
 all : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(BIN)
 	@echo "--------------------------------------------------------------"
-	@echo "            to execute type: $(BIN) &"
+	@echo "            to execute type: ./ $(BIN) "
 	@echo "--------------------------------------------------------------"
 
 image.o : image.c image.h
