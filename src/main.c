@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     Image image;
 
     // load a ppm file
-    if(loadImagePPM(&image,"../images/pogchamp.ppm") != EXIT_SUCCESS)
+    if(loadImagePPM(&image,"../pics/pogchamp.ppm") != EXIT_SUCCESS)
         return EXIT_FAILURE;
 
     // modify the image (red pixel in the center)
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     image.data[pixel + 2] = 0; // Blue
 
     // save the image (if the directory "images" already exists)
-    saveImagePPM(&image, "../images/output.ppm");
+    saveImagePPM(&image, "../pics/output.ppm");
 
     // free the image memory
     freeImage(&image);
