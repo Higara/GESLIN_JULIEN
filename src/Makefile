@@ -19,7 +19,7 @@ image.o : image.c image.h LUT.h
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."
 
-main.o : main.c image.o 
+main.o : main.c image.o image.h LUT.h
 	@echo "compile main"
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."

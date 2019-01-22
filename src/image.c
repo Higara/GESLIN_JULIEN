@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "image.h"
-
+#include "LUT.h"
 
 
 int newImage(Image *image, unsigned int width, unsigned int height)
@@ -108,13 +108,26 @@ void applyLUT(Image *image, LUT *lut){
     green = getPixel(image, x, y, 1);
     blue = getPixel(image, x, y, 2);
 
-    setPixel(image,x,y,0, lut->lutr[red]);
-    setPixel(image, x, y, 1, lut->lutg[green]);
-    setPixel(image,x,y, 2, lut->lutb[blue]);
+    setPixel(image,x,y,0, limitValue(lut->lutr[red]));
+    setPixel(image, x, y, 1, limitValue(lut->lutg[green]));
+    setPixel(image,x,y, 2, limitValue(lut->lutb[blue]));
 
     }
   }
 
+}
+
+
+int limitValue(int value){
+  if(value > 255){
+    return 255;
+  }
+  if(value < 0){
+    return 0;
+  }
+  else{
+    return value;
+  }
 }
 
 

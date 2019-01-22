@@ -19,8 +19,9 @@ int main(int argc, char **argv)
     //extension("")
 
     // load a ppm file
-    if(loadImagePPM(&image,"../pics/pogchamp.ppm") != EXIT_SUCCESS)
+    if(loadImagePPM(&image,"../pics/pogchamp.ppm") != EXIT_SUCCESS){
         return EXIT_FAILURE;
+    }
 
     // modify the image (red pixel in the center)
     // unsigned int pixel = (image.width*(image.height) + (image.width))*3;
@@ -28,6 +29,11 @@ int main(int argc, char **argv)
     // image.data[pixel + 0] = 0; // Red
     // image.data[pixel + 1] = 255; // Green
     // image.data[pixel + 2] = 0; // Blue
+
+    LUT lut;
+    lutInit(&lut);
+    dimLum(&lut, 50);
+    applyLUT(&image,&lut);
 
 
     // save the image (if the directory "images" already exists)

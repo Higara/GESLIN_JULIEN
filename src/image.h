@@ -45,4 +45,6 @@ void setPIxel(Image *image, int x, int y, int color);
 
 void applyLUT(Image *image, LUT *lut);
 
+int limitValue(int value);
+
 #endif
