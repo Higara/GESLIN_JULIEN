@@ -1,6 +1,8 @@
 #ifndef IMAGE_H__
 #define IMAGE_H__
 
+#include "LUT.h"
+
 /// \brief structure that contains an image
 typedef struct Image{
   unsigned char *data; //Pixels
@@ -31,5 +33,16 @@ int saveImagePPM(Image *image, char *filename);
 /// \param filename: char array containing the filename of the image to load.
 /// \return EXIT_FAILURE in case of problem, else EXIT_SUCCESS.
 int loadImagePPM(Image *image, char *filename);
+
+/// \brief checks if extension is PPM or not
+/// \param nomFichier: char array containing the filename of the image to load
+/// \param extens: char array of the extension of the file
+//void extension(char *filename, char extens[])
+
+int getPixel(Image *image, int x, int y, int color);
+
+void setPIxel(Image *image, int x, int y, int color);
+
+void applyLUT(Image *image, LUT *lut);
 
 #endif

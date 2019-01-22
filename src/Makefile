@@ -1,7 +1,7 @@
 CC     = gcc
 CFLAGS = -Wall -O2 -Wno-unused-result -g
 LIB    = -lm
-OBJ    = main.o image.o 
+OBJ    = main.o image.o LUT.o
 RM     = rm -f
 BIN    = cparti
 DIRNAME = $(shell basename $$PWD)
@@ -14,13 +14,18 @@ all : $(OBJ)
 	@echo "            to execute type: ./ $(BIN) "
 	@echo "--------------------------------------------------------------"
 
-image.o : image.c image.h
+image.o : image.c image.h LUT.h
 	@echo "compile image"
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."
 
 main.o : main.c image.o 
 	@echo "compile main"
+	$(CC) $(CFLAGS) -c $<  
+	@echo "done..."
+
+LUT.o : LUT.c LUT.h
+	@echo "compile LUT"
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."
 

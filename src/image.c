@@ -4,6 +4,7 @@
 #include "image.h"
 
 
+
 int newImage(Image *image, unsigned int width, unsigned int height)
 {
   // memory allocation
@@ -13,7 +14,7 @@ int newImage(Image *image, unsigned int width, unsigned int height)
     return EXIT_FAILURE;
   }
 
-  // update widt and heigh
+  // update width and height
   image->width  = width;
   image->height = height;
 
@@ -64,6 +65,56 @@ int saveImagePPM(Image *image, char *filename)
   }
 
   return EXIT_SUCCESS;
+}
+
+
+
+// void extension(char nomFichier[], char extens[])
+// {
+//   int i, depart;
+   
+//   for(i=0; nomFichier[i] != '.'; i++);
+//   depart = i+1;
+//   for(; nomFichier[i] != '\0'; i++)
+//     extens[i-depart] = nomFichier[i];
+// }
+
+
+
+int getPixel(Image *image, int x, int y, int color){
+  int pixel;
+  pixel= y*(image->width)*3+x*3;
+  return image->data[pixel+color];
+
+}
+  
+void setPixel(Image *image, int x, int y, int color, int value){
+  int pixel;
+  pixel= y*(image->width)*3+x*3;
+  image->data[pixel+color]= value;
+
+}
+
+void applyLUT(Image *image, LUT *lut){
+  int x, y; 
+  int red, green, blue;
+
+
+  for (x=0; x<image->width; x++){
+    for (y=0; y<image->height; y++){
+
+
+    red = getPixel(image, x, y, 0);
+    green = getPixel(image, x, y, 1);
+    blue = getPixel(image, x, y, 2);
+
+    setPixel(image,x,y,0, lut->lutr[red]);
+    setPixel(image, x, y, 1, lut->lutg[green]);
+    setPixel(image,x,y, 2, lut->lutb[blue]);
+
+    }
+  }
+
 }
 
 
