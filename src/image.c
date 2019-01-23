@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "image.h"
 #include "LUT.h"
@@ -49,7 +50,7 @@ int saveImagePPM(Image *image, char *filename)
   {
     // generate the header
     char header[100]; // bad way to proceed, but still ok ...
-    sprintf(header,"P6\n#M. Nozick is a so nice person\n%d %d\n255\n",image->width,image->height);
+    sprintf(header,"P6\n#M.Geslin is a so determined student\n%d %d\n255\n",image->width,image->height);
     fprintf(myfile,"%s",header);
 
     // write the data
@@ -95,7 +96,7 @@ void setPixel(Image *image, int x, int y, int color, int value){
 
 }
 
-void applyLUT(Image *image, LUT *lut){
+void applyLUT(Image *image, Lut *lut){
   int x, y; 
   int red, green, blue;
 
@@ -115,6 +116,30 @@ void applyLUT(Image *image, LUT *lut){
     }
   }
 
+}
+
+//PROBLEME: INVERT NE FONCTIONNE QU'AVEC UNE VALEUR APRES ET
+//NE PEUT PAS ETRE STACKEE AVEC D'AUTRES LUT
+
+void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin){
+  int i=begin;
+  while(i<=size){
+    if (strcmp(argv[i],"ADDLUM") ==0){
+      addLum(lut,atoi(argv[i+1]));
+      i=i+2; //on regarde 2 arguments plus loin (nom de fonction + sa valeur)
+    }
+    else if (strcmp(argv[i],"DIMLUM") ==0){
+      dimLum(lut,atoi(argv[i+1]));
+      i=i+2;
+    }
+    else if (strcmp(argv[i],"INVERT") ==0){
+      invert(lut);
+      i=i+1;
+    }
+    else{
+      i++;
+    }
+  }
 }
 
 

@@ -14,9 +14,6 @@ int main(int argc, char **argv)
     // char extens[10] = "";
     // extension("exemple.MPEG", extens);
     // if(extension)
-   
-
-    //extension("")
 
     // load a ppm file
     if(loadImagePPM(&image,"../pics/pogchamp.ppm") != EXIT_SUCCESS){
@@ -30,10 +27,14 @@ int main(int argc, char **argv)
     // image.data[pixel + 1] = 255; // Green
     // image.data[pixel + 2] = 0; // Blue
 
-    LUT lut;
+    Lut lut;
     lutInit(&lut);
-    dimLum(&lut, 50);
+    mergeLut(&image,&lut, argv, argc-2,1); // SIZE A MODIFIER A 2 QUAND IMAGE SERA SPECIFIEE EN LIGNE DE COMMANDE
     applyLUT(&image,&lut);
+
+
+
+
 
 
     // save the image (if the directory "images" already exists)

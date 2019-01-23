@@ -43,7 +43,9 @@ int getPixel(Image *image, int x, int y, int color);
 
 void setPIxel(Image *image, int x, int y, int color);
 
-void applyLUT(Image *image, LUT *lut);
+void applyLUT(Image *image, Lut *lut);
+
+void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin);
 
 int limitValue(int value);
 
