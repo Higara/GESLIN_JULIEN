@@ -29,8 +29,8 @@ int main(int argc, char **argv)
 
     Lut lut;
     lutInit(&lut);
-    mergeLut(&image,&lut, argv, argc-2,1); // SIZE A MODIFIER A 2 QUAND IMAGE SERA SPECIFIEE EN LIGNE DE COMMANDE
-    applyLUT(&image,&lut);
+    mergeLut(&image,&lut, argv, argc-1,1); // SIZE A MODIFIER A 2 QUAND IMAGE SERA SPECIFIEE EN LIGNE DE COMMANDE
+    applyLUT(&image,&lut);                 // PENSER A MODIFIER ARGC-1 EN ARGC-2
 
 
 

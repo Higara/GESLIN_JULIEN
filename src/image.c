@@ -132,6 +132,14 @@ void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin){
       dimLum(lut,atoi(argv[i+1]));
       i=i+2;
     }
+    else if (strcmp(argv[i],"ADDCON") ==0){
+      addCon(lut,atoi(argv[i+1]));
+      i=i+2;
+    }
+    else if (strcmp(argv[i],"DIMCON") ==0){
+      dimCon(lut,atoi(argv[i+1]));
+      i=i+2;
+    }
     else if (strcmp(argv[i],"INVERT") ==0){
       invert(lut);
       i=i+1;

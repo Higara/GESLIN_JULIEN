@@ -19,9 +19,9 @@ void dimLum(Lut *lut,int value);
 
 void invert(Lut *lut);
 
+void addCon(Lut *lut, int value);
 
-
-
+void dimCon(Lut *lut, int value);
 
 
 #endif
