@@ -1,7 +1,7 @@
 #ifndef IMAGE_H__
 #define IMAGE_H__
 
-#include "LUT.h"
+
 
 /// \brief structure that contains an image
 typedef struct Image{
@@ -34,19 +34,21 @@ int saveImagePPM(Image *image, char *filename);
 /// \return EXIT_FAILURE in case of problem, else EXIT_SUCCESS.
 int loadImagePPM(Image *image, char *filename);
 
-/// \brief checks if extension is PPM or not
-/// \param nomFichier: char array containing the filename of the image to load
-/// \param extens: char array of the extension of the file
-//void extension(char *filename, char extens[])
-
+/// \brief get the relative position of the pixel and the rgb color layer.
+/// \param image: pointer on the image to load.
+/// \param x: the x-axis position of the pixel.
+/// \param y: the y-axis position of the pixel.
+/// \param x: the integer relative to the rgb layer (0:red, 1:green, 2:blue)
+/// \return the field data[pixel + color]
 int getPixel(Image *image, int x, int y, int color);
 
-void setPIxel(Image *image, int x, int y, int color);
 
-void applyLUT(Image *image, Lut *lut);
+/// \brief 
+void setPixel(Image *image, int x, int y, int color, int value);
 
-void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin);
-
+// \brief forces the pixels values to stay in bound between 0 et 255
+// \param value: any integer given to the function
 int limitValue(int value);
+
 
 #endif

@@ -144,6 +144,15 @@ void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin){
       invert(lut);
       i=i+1;
     }
+    else if (strcmp(argv[i],"SEPIA") ==0){
+      greySelection(image);
+      sepia(lut);
+      i=i+1;
+    }
+    else if (strcmp(argv[i],"GREY") ==0){
+      greySelection(image);
+      i=i+1;
+    }
     else{
       i++;
     }
@@ -208,3 +217,5 @@ int loadImagePPM(Image *image, char *filename)
 
   return EXIT_SUCCESS;
 }
+
+

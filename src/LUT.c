@@ -72,5 +72,38 @@ void dimCon(Lut *lut, int value){
 	}
 }
 
+void greySelection(Image *image){
+	for (int x=0; x<image->width; x++){
+    	for(int y=0; y<image->height; y++){
+      		int moyenne;
 
+      		int redLayer= getPixel(image,x,y,0);
+      		int greenLayer= getPixel(image,x,y,1);
+      		int blueLayer= getPixel(image,x,y,2);
+
+      		moyenne=(int)((redLayer + greenLayer + blueLayer)/3);
+
+      		setPixel(image,x,y,0, moyenne);
+      		setPixel(image,x,y,1, moyenne);
+      		setPixel(image,x,y,2, moyenne);
+
+    	}	
+	}
+
+}
+
+
+
+void sepia(Lut *lut){
+	for(int i=0; i<256; i++){
+		int red = (lut->lutr[i] * .393) + (lut->lutg[i] *.769) + (lut->lutb[i] * .189);
+		int green = (lut->lutr[i] * .349) + (lut->lutg[i] *.686) + (lut->lutb[i] * .168);
+		int blue = (lut->lutr[i] * .272) + (lut->lutg[i] *.534) + (lut->lutb[i] * .131);
+
+		lut->lutr[i] = red;
+		lut->lutg[i] = green;
+		lut->lutb[i] = blue;
+
+	}
+}
 
