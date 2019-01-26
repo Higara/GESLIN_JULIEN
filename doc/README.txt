@@ -1,16 +1,16 @@
 =========================================================================================
 
 
- 					 __  __ _____ _   _ _____ _____ _____ __  __ _____  
- 					|  \/  |_   _| \ | |_   _/ ____|_   _|  \/  |  __ \ 
- 					| \  / | | | |  \| | | || |  __  | | | \  / | |__) |
- 					| |\/| | | | | . ` | | || | |_ | | | | |\/| |  ___/ 
- 					| |  | |_| |_| |\  |_| || |__| |_| |_| |  | | |     
-					|_|  |_|_____|_| \_|_____\_____|_____|_|  |_|_|     
+ 			 __  __ _____ _   _ _____ _____ _____ __  __ _____  
+ 			|  \/  |_   _| \ | |_   _/ ____|_   _|  \/  |  __ \ 
+ 			| \  / | | | |  \| | | || |  __  | | | \  / | |__) |
+ 			| |\/| | | | | . ` | | || | |_ | | | | |\/| |  ___/ 
+ 			| |  | |_| |_| |\  |_| || |__| |_| |_| |  | | |     
+			|_|  |_|_____|_| \_|_____\_____|_____|_|  |_|_|     
 
-								 	  Project by:
-									 THOMAS GESLIN
-									 VICTOR JULIEN
+						 	  Project by:
+							 THOMAS GESLIN
+							 VICTOR JULIEN
 ========================================================================================                                                     
                                                      
 This software allows user to modify and save PPM pictures with a list of effects called 
@@ -39,3 +39,13 @@ The synthax to follow is:
 
 
 
+EXAMPLE OF TEST COMMANDS TO COPY PASTE INTO COMMAND LINE:
+
+
+./bin/minigimp pogchamp.ppm BW INVERT itworks.ppm
+
+./bin/minigimp mehsinger.ppm ADDCON 50 epicsinger.ppm
+
+./bin/minigimp gig.ppm SEPIA ADDCON 20 vintagegig.ppm
+
+./bin/minigimp toobright.ppm DIMLUM 80 muchbetter.ppm
