@@ -1,7 +1,7 @@
 CC     = gcc
 CFLAGS = -Wall -O2 -Wno-unused-result -g
 LIB    = -lm
-OBJ    = src/main.o src/image.o src/LUT.o
+OBJ    = src/main.o src/image.o src/LUT.o src/histo.o
 RM     = rm -f
 BIN    = bin/minigimp
 DIRNAME = $(shell basename $$PWD)
@@ -14,7 +14,7 @@ all : $(OBJ)
 	@echo "            to execute type: ./$(BIN) "
 	@echo "--------------------------------------------------------------"
 
-src/image.o : src/image.c src/image.h
+src/image.o : src/image.c src/image.h src/LUT.h
 	@echo "compile image"
 	$(CC) $(CFLAGS) -o src/image.o -c $<  
 	@echo "done..."
@@ -22,6 +22,12 @@ src/image.o : src/image.c src/image.h
 src/LUT.o : src/LUT.c src/LUT.h src/image.h
 	@echo "compile LUT"
 	$(CC) $(CFLAGS) -o src/LUT.o -c $<  
+	@echo "done..."
+
+
+src/histo.o : src/histo.c src/histo.h src/image.h
+	@echo "compile histo"
+	$(CC) $(CFLAGS) -o src/histo.o -c $<  
 	@echo "done..."
 
 src/main.o : src/main.c src/image.o src/image.h src/LUT.h
