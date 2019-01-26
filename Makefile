@@ -11,7 +11,7 @@ STDNAME = $(DIRNAME).zip
 all : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(BIN)
 	@echo "--------------------------------------------------------------"
-	@echo "            to execute type: $(BIN) "
+	@echo "            to execute type: ./$(BIN) "
 	@echo "--------------------------------------------------------------"
 
 src/image.o : src/image.c src/image.h
