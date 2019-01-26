@@ -15,22 +15,10 @@ int main(int argc, char **argv)
     char source[50]="pics/";
     strcat(source,argv[1]);
 
-    //test if file is PPM or not
-    // char extens[10] = "";
-    // extension("exemple.MPEG", extens);
-    // if(extension)
-
     // load a ppm file
     if(loadImagePPM(&image,source) != EXIT_SUCCESS){
         return EXIT_FAILURE;
     }
-
-    // modify the image (red pixel in the center)
-    // unsigned int pixel = (image.width*(image.height) + (image.width))*3;
-    // printf("%d\n",pixel);
-    // image.data[pixel + 0] = 0; // Red
-    // image.data[pixel + 1] = 255; // Green
-    // image.data[pixel + 2] = 0; // Blue
 
     Lut lut;
     lutInit(&lut);
@@ -44,8 +32,6 @@ int main(int argc, char **argv)
 
     // free the image memory
     freeImage(&image);
-
-
 
     return 0;
 }

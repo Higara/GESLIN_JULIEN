@@ -43,7 +43,12 @@ int loadImagePPM(Image *image, char *filename);
 int getPixel(Image *image, int x, int y, int color);
 
 
-/// \brief 
+/// \brief replaces the value of the pixel with a value given in argument
+/// \param image: pointer on the image to load.
+/// \param x: the x-axis position of the pixel.
+/// \param y: the y-axis position of the pixel.
+/// \param x: the integer relative to the rgb layer (0:red, 1:green, 2:blue)
+/// \param value: the integer used to change the value of the pixel color layer 
 void setPixel(Image *image, int x, int y, int color, int value);
 
 // \brief forces the pixels values to stay in bound between 0 et 255

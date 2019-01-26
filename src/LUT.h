@@ -28,27 +28,31 @@ void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin);
 /// \param lut: pointer on the final lut
 void applyLUT(Image *image, Lut *lut);
 
-// function that allows user to increase the luminosity of 
+// [LUT] function that allows user to increase the luminosity of 
 //the image from a certain amount
 void addLum(Lut *lut,int value);
 
-// function that allows user to decrease the luminosity of
+// [LUT] function that allows user to decrease the luminosity of
 // the image from a certain amount
 void dimLum(Lut *lut,int value);
 
-// function that allows user to invert the colors of the image
+// [LUT] function that allows user to invert the colors of the image
 void invert(Lut *lut);
 
-// function that allows user to increase the contrast of
+// [LUT] function that allows user to increase the contrast of
 // the image from a certain amount
 void addCon(Lut *lut, int value);
 
-// function that allows user to decrease the contrast of
+// [LUT] function that allows user to decrease the contrast of
 // the image from a certain amount
 void dimCon(Lut *lut, int value);
 
+
+// function that calculates the average of the three RGB layers
+// and sets this new value as the pixel value. THIS IS NOT CONSIDERED A LUT
 void greySelection(Image *image);
 
+// [LUT] function that applies a sepia effect to the picture.
 void sepia(Lut *lut);
 
 

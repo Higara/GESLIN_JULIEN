@@ -93,7 +93,6 @@ void greySelection(Image *image){
 }
 
 
-
 void sepia(Lut *lut){
 	for(int i=0; i<256; i++){
 		int red = (lut->lutr[i] * .393) + (lut->lutg[i] *.769) + (lut->lutb[i] * .189);
