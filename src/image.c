@@ -178,11 +178,16 @@ void mergeLut(Image *image, Lut *lut, char **argv, int size, int begin){
       greySelection(image);
       i=i+1;
     }
+    else if (strcmp(argv[i],"-h") ==0){
+      faireHistogramme(image);
+      i=i+1;
+    }
     else{
       i++;
     }
   }
 }
+
 
 
 int limitValue(int value){

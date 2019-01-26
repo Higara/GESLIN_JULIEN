@@ -4,6 +4,7 @@
 
 #include "image.h"
 #include "LUT.h"
+#include "histo.h"
 
 int main(int argc, char **argv)
 {
@@ -11,8 +12,8 @@ int main(int argc, char **argv)
     Image image;
 
     //declare filename from command line
-    char finalname[50]="pics/";
-    char source[50]="pics/";
+    char finalname[50]="images/";
+    char source[50]="images/";
     strcat(source,argv[1]);
 
     // load a ppm file
@@ -22,7 +23,7 @@ int main(int argc, char **argv)
 
     Lut lut;
     lutInit(&lut);
-    mergeLut(&image,&lut, argv, argc-1,1); // SIZE A MODIFIER A 2 QUAND IMAGE SERA SPECIFIEE EN LIGNE DE COMMANDE
+    mergeLut(&image,&lut, argv, argc-2,2); // SIZE A MODIFIER A 2 QUAND IMAGE SERA SPECIFIEE EN LIGNE DE COMMANDE
     applyLUT(&image,&lut);                 // PENSER A MODIFIER ARGC-1 EN ARGC-2
 
 

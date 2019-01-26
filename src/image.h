@@ -55,5 +55,7 @@ void setPixel(Image *image, int x, int y, int color, int value);
 // \param value: any integer given to the function
 int limitValue(int value);
 
+void faireHistogramme(Image *image);
+
 
 #endif
